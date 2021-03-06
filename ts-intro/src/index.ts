@@ -2,27 +2,23 @@
     ===== Código de TypeScript =====
 */
 
-function classDecorator<T extends { new (...args: any[]): {} }>(
-    constructor: T
-  ) {
-    return class extends constructor {
-      newProperty = "new property";
-      hello = "override";
-    };
-  }
-
-@classDecorator
-class MiSuperClase{
-    public miPropiedad: string = 'ABC';
-
-    imprimir() {
-        console.log("Hola mundo");
-    }
+interface Pasajero {
+    nombre: string;
+    hijos?: string[];
 }
 
-console.log(MiSuperClase);
+const pasajero1: Pasajero = {
+    nombre: "Fernando"
+}
 
-const miClase = new MiSuperClase();
+const pasajero2: Pasajero = {
+    nombre: "Melissa",
+    hijos: ["Hijo1","Hijo2"]
+}
 
-console.log(miClase.miPropiedad);
+function imprimeHijos( pasajero: Pasajero) {
+    const cuantosHijos = pasajero.hijos?.length || 0;
+    console.log( cuantosHijos );
+}
 
+imprimeHijos(pasajero1);
