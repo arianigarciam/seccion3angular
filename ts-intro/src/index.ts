@@ -2,21 +2,19 @@
     ===== Código de TypeScript =====
 */
 
-let habilidades: string[] = ['a','b','c'];
 
-interface Personaje {
-    nombre: string;
-    hp:     number;
-    habilidades: string[];
-    puebloNatal?:string;
+function sumar(a: number, b: number): number {
+    return (a + b);
 }
 
-const personaje: Personaje = {
-    nombre: 'Strider',
-    hp: 100,
-    habilidades : ['Bash','Counter','Healing']
-};
+const sumarFlecha = (a: number,b: number): number => {
+    return a + b;
+}
 
-personaje.puebloNatal = 'abccc';
+function multiplicar(numero: number, otroNumero?: number, base: number = 2): number {
+    return numero * base;
+}
 
-console.table(personaje);
+const resultado = multiplicar(5,0,10);
+
+console.log(resultado);
