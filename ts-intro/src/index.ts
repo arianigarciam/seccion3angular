@@ -1,21 +1,20 @@
-import { Producto, calcularIVA } from './interfaces/Producto';
-
 /*
     ===== Código de TypeScript =====
 */
 
+class Heroe {
+    // alterEgo: string;
+    // edad: number;
+    // nombreReal: string;
 
-const carritoCompras: Producto[] = [
-    {
-        desc: 'telefono 1',
-        precio: 100
-    },
-    {
-        desc: 'telefono 2',
-        precio: 150
-    }
-];
+    constructor( 
+        public alterEgo: string,
+        public edad?: number,
+        public nombreReal?: string
+        ){};
 
-const [total,iva] = calcularIVA( carritoCompras );
-console.log(total);
-console.log(iva);
+}
+
+const ironman = new Heroe('Ironman',45,'Tony');
+
+console.log(ironman);
