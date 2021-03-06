@@ -2,11 +2,21 @@
     ===== Código de TypeScript =====
 */
 
-let nombre: string= 'strider';
-let hp: number | string = 123;
-let estaVivo: boolean = true;
+let habilidades: string[] = ['a','b','c'];
 
-nombre = 'jjjjj';
-hp = 'FULL';
+interface Personaje {
+    nombre: string;
+    hp:     number;
+    habilidades: string[];
+    puebloNatal?:string;
+}
 
-console.log(nombre, hp);
+const personaje: Personaje = {
+    nombre: 'Strider',
+    hp: 100,
+    habilidades : ['Bash','Counter','Healing']
+};
+
+personaje.puebloNatal = 'abccc';
+
+console.table(personaje);
