@@ -2,40 +2,34 @@
     ===== Código de TypeScript =====
 */
 
-
-interface Reproductor {
-    volumen: number;
-    segundo: number;
-    cancion: string;
-    detalles: Detalle;
+interface Producto {
+    desc: string;
+    precio: number;
 }
 
-interface Detalle {
-    autor: string;
-    year: number;
+const telefono : Producto= {
+    desc: 'Descripcion 1',
+    precio: 150
 }
 
-const reproductor:Reproductor ={
-    volumen: 90,
-    segundo: 36,
-    cancion: "Mi cancion",
-    detalles: {
-        autor: "Mi autor",
-        year: 1996
-    }
+const tablet : Producto = {
+    desc: "descrpcion 2",
+    precio: 200
 }
-const autor = "aaa";
-const { volumen, segundo, cancion, detalles: {autor: autorDetalle} } = reproductor;
-//const { autor } = detalles 
-// console.log("El volumen actual es de: ",volumen);
-// console.log("El segundo actual es de: ",segundo);
-// console.log("La cancion actual es de: ",cancion);
-// console.log("El autor es: ",autorDetalle);
 
-const dbz: string[] = ['A','B','C'];
-const [ , ,p3] =dbz;
+function calcularIVA(productos: Producto[]): [number,number] {
+    let total = 0;
 
-// console.log('Personaje 1:',p1);
-// console.log('Personaje 2:',p1);
-console.log('Personaje 3:',p3);
+    productos.forEach( ( { precio } ) =>{
+        total += precio;
+    } );
 
+    return [total,total * 0.15];
+}
+
+const articulos = [telefono, tablet];
+
+const [total,iva] = calcularIVA(articulos);
+
+console.log(iva);
+console.log(total);
