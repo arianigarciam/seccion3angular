@@ -1,35 +1,21 @@
+import { Producto, calcularIVA } from './interfaces/Producto';
+
 /*
     ===== Código de TypeScript =====
 */
 
-interface Producto {
-    desc: string;
-    precio: number;
-}
 
-const telefono : Producto= {
-    desc: 'Descripcion 1',
-    precio: 150
-}
+const carritoCompras: Producto[] = [
+    {
+        desc: 'telefono 1',
+        precio: 100
+    },
+    {
+        desc: 'telefono 2',
+        precio: 150
+    }
+];
 
-const tablet : Producto = {
-    desc: "descrpcion 2",
-    precio: 200
-}
-
-function calcularIVA(productos: Producto[]): [number,number] {
-    let total = 0;
-
-    productos.forEach( ( { precio } ) =>{
-        total += precio;
-    } );
-
-    return [total,total * 0.15];
-}
-
-const articulos = [telefono, tablet];
-
-const [total,iva] = calcularIVA(articulos);
-
-console.log(iva);
+const [total,iva] = calcularIVA( carritoCompras );
 console.log(total);
+console.log(iva);
