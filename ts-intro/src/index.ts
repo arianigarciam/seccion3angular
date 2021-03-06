@@ -15,6 +15,25 @@ function multiplicar(numero: number, otroNumero?: number, base: number = 2): num
     return numero * base;
 }
 
-const resultado = multiplicar(5,0,10);
+interface PersonajeLOR{
+    nombre: string;
+    pv: number;
+    mostrarHp:() => void;
+}
 
-console.log(resultado);
+// console.table(personaje);
+function curar(personaje: PersonajeLOR, curarX: number): void{
+    personaje.pv += curarX;
+    // console.table(personaje);
+}
+
+const nuevoPersonaje: PersonajeLOR = {
+    nombre: "Nombre",
+    pv: 50,
+    mostrarHp() {
+        console.log("Puntos de vida ", this.pv)
+    }
+}
+
+curar(nuevoPersonaje, 20);
+nuevoPersonaje.mostrarHp();
