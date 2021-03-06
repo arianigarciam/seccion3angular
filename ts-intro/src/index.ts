@@ -1,26 +1,28 @@
 /*
     ===== Código de TypeScript =====
 */
-class PersonaNormal{
-    constructor(
-        public nombre: string,
-        public direccion: string
-    ){}
 
+function classDecorator<T extends { new (...args: any[]): {} }>(
+    constructor: T
+  ) {
+    return class extends constructor {
+      newProperty = "new property";
+      hello = "override";
+    };
+  }
+
+@classDecorator
+class MiSuperClase{
+    public miPropiedad: string = 'ABC';
+
+    imprimir() {
+        console.log("Hola mundo");
+    }
 }
 
-class Heroe extends PersonaNormal{
+console.log(MiSuperClase);
 
-    constructor( 
-        public alterEgo: string,
-        public edad?: number,
-        public nombreReal?: string
-        ){
-            super( nombreReal ,'NY');
-        }
+const miClase = new MiSuperClase();
 
-}
+console.log(miClase.miPropiedad);
 
-const ironman = new Heroe('Ironman',45,'Tony');
-
-console.log(ironman);
