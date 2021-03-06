@@ -2,38 +2,33 @@
     ===== Código de TypeScript =====
 */
 
-
-function sumar(a: number, b: number): number {
-    return (a + b);
-}
-
-const sumarFlecha = (a: number,b: number): number => {
-    return a + b;
-}
-
-function multiplicar(numero: number, otroNumero?: number, base: number = 2): number {
-    return numero * base;
-}
-
-interface PersonajeLOR{
+interface SuperHeroe {
     nombre: string;
-    pv: number;
-    mostrarHp:() => void;
+    edad : number;
+    direccion: Direccion;
+    mostrarDireccion: () => string;
+   
 }
+    
+interface Direccion {
+    calle: string,
+    pais: string,
+    ciudad: string,
+};
 
-// console.table(personaje);
-function curar(personaje: PersonajeLOR, curarX: number): void{
-    personaje.pv += curarX;
-    // console.table(personaje);
-}
-
-const nuevoPersonaje: PersonajeLOR = {
-    nombre: "Nombre",
-    pv: 50,
-    mostrarHp() {
-        console.log("Puntos de vida ", this.pv)
+const superHeroe: SuperHeroe = {
+    nombre: 'Spiderman',
+    edad: 30,
+    direccion: {
+        calle: 'Main st',
+        pais: 'USA',
+        ciudad: 'NY'
+    },
+    mostrarDireccion() {
+        return this.nombre + ', ' + this.direccion.ciudad + ', ' + this.direccion.pais;
     }
 }
 
-curar(nuevoPersonaje, 20);
-nuevoPersonaje.mostrarHp();
+const direccion = superHeroe.mostrarDireccion();
+console.log(direccion);
+
